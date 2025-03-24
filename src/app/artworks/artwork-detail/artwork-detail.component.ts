@@ -12,7 +12,7 @@ import { ArtworksService } from '../../services/artworks.service';
 export class ArtworkDetailComponent {
   artworkId: string | undefined;
   artwork: Artwork | undefined;
-  // locding = true;
+  // loading = true;
 
   constructor(private route: ActivatedRoute, private artworksService: ArtworksService) { }
 
@@ -20,6 +20,10 @@ export class ArtworkDetailComponent {
   // https://api.artic.edu/api/v1/artworks/search?category_titles=Essentials&fields=id,title,artist_id,api_link,,description,date_display,artist_display,dimensions,medium_display,style_title,short_description,image_id,iiif_url&page=1&limit=100
   artworkUrl() : string { 
     return this.artwork?.config?.iiif_url + '/' + this.artwork?.data?.image_id + '/full/843,/0/default.jpg';
+  }
+
+  artworkDescription() : string {
+    return this.artwork?.data?.description || '';
   }
 
   ngOnInit() {

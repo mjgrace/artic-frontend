@@ -1,16 +1,10 @@
-<div>
-    <img width="100%" [src]="artworkUrl()" />
-    <h2>{{ artwork?.data?.title }}</h2>
-    <p>{{ artwork?.data?.id }}</p>
-    <p>{{ artwork?.data?.api_link }}</p>
-    <p>{{ artwork?.data?.artist_id }}</p>
-    <p>{{ artwork?.data?.description }}</p>
-    <p>{{ artwork?.data?.date_display }}</p>
-    <p>{{ artwork?.data?.artist_display }}</p>
-    <p>{{ artwork?.data?.dimensions }}</p>
-    <p>{{ artwork?.data?.medium_display }}</p>
-    <p>{{ artwork?.data?.style_title }}</p>
-    <p>{{ artwork?.data?.short_description }}</p>
-    <p>{{ artwork?.data?.image_id }}</p>
-    <p>{{ artwork?.config?.iiif_url }}</p>
+<div id="artworkDetail">
+    <div id="artworkImage"><a [href]="artworkUrl()"><img [src]="artworkUrl()" /></a></div>
+    <div id="artworkTitle">{{ artwork?.data?.title }}</div>
+    <div id="artworkArtist">{{ artwork?.data?.artist_display }}</div>
+    <div id="artworkDate">{{ artwork?.data?.date_display }}</div>
+    <div id="artworkDescription" [innerHTML]="artworkDescription()"></div>
+    <div><label for="artworkMedium">Medium</label></div><div id="artworkMedium">{{ artwork?.data?.medium_display }}</div>
+    <div><label for="artworkDimensions">Dimensions</label></div><div id="artworkDimensions">{{ artwork?.data?.dimensions }}</div>
+    <div><label for="artworkStyle">Style</label></div><div id="artworkStyle">{{ artwork?.data?.style_title }}</div>
 </div>

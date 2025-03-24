@@ -1,0 +1,23 @@
+#artworkDetail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    align-items: start;
+    justify-items: start;
+    gap: 10px;
+}
+
+#artworkImage {
+    grid-column: 1 / span 2;
+    display: flex;
+    justify-content: center;
+}
+
+#artworkImage img {
+    max-width: 50%;
+}
+
+#artworkTitle, #artworkArtist, #artworkDate, #artworkDescription {
+    grid-column: 1 / span 2;
+}
