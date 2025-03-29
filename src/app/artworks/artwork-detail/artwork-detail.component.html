@@ -1,5 +1,9 @@
+<div id="artworkImageContainer">
+    <div id="artworkImage">
+        <a [href]="artworkUrl()"><img [src]="artworkUrl()" /></a>
+    </div>
+</div>
 <div id="artworkDetail">
-    <div id="artworkImage"><a [href]="artworkUrl()"><img [src]="artworkUrl()" /></a></div>
     <div id="artworkTitle">{{ artwork?.data?.title }}</div>
     <div id="artworkArtist">{{ artwork?.data?.artist_display }}</div>
     <div id="artworkDate">{{ artwork?.data?.date_display }}</div>
