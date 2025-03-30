@@ -22,6 +22,22 @@ export class ArtworkDetailComponent {
     return this.artwork?.config?.iiif_url + '/' + this.artwork?.data?.image_id + '/full/843,/0/default.jpg';
   }
 
+  artworkByArtistUrl() : string {
+    return this.artworksService.getArtworksByArtist(this.artwork?.data?.artist_id?.toString() || '').toString();
+  }
+
+  artworkByCategoryUrl() : string {
+    return this.artworkByDepartmentUrl();
+  }
+
+  artworkByDepartmentUrl() : string {
+    return this.artworksService.getArtworksByDepartment(this.artwork?.data?.department_id?.toString() || '').toString();
+  }
+
+  artworkByStyleUrl() : string {
+    return this.artworksService.getArtworksByStyle(this.artwork?.data?.style_id?.toString() || '').toString();
+  }
+
   artworkDescription() : string {
     return this.artwork?.data?.description || '';
   }

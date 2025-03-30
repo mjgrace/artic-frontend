@@ -5,10 +5,11 @@
 </div>
 <div id="artworkDetail">
     <div id="artworkTitle">{{ artwork?.data?.title }}</div>
-    <div id="artworkArtist">{{ artwork?.data?.artist_display }}</div>
+    <div id="artworkArtist"><a [href]="artworkByArtistUrl()">{{ artwork?.data?.artist_display }}</a></div>
     <div id="artworkDate">{{ artwork?.data?.date_display }}</div>
     <div id="artworkDescription" [innerHTML]="artworkDescription()"></div>
-    <div><label for="artworkMedium">Medium</label></div><div id="artworkMedium">{{ artwork?.data?.medium_display }}</div>
+    <div><label for="artworkCategory">Category</label></div><div id="artworkCategory"><a [href]="artworkByCategoryUrl()">{{ artwork?.data?.department_title }}</a></div>
     <div><label for="artworkDimensions">Dimensions</label></div><div id="artworkDimensions">{{ artwork?.data?.dimensions }}</div>
-    <div><label for="artworkStyle">Style</label></div><div id="artworkStyle">{{ artwork?.data?.style_title }}</div>
+    <div><label for="artworkMedium">Medium</label></div><div id="artworkMedium">{{ artwork?.data?.medium_display }}</div>
+    <div><label for="artworkStyle">Style</label></div><div id="artworkStyle"><a [href]="artworkByStyleUrl()">{{ artwork?.data?.style_title }}</a></div>
 </div>
