@@ -1,0 +1,12 @@
+<div id="artworkList">
+    <div id="artworkImageContainer">
+        <div *ngFor="let artwork of artworks" class="artworkItem">
+            <div class="artworkImage">
+                <a [href]="artworkUrl(artwork)"><img [src]="artworkUrl(artwork)" /></a>
+            </div>
+            <div class="artworkDetail">
+                <div class="artworkTitle">{{ artwork?.title }}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 export interface ArtworkConfig {
   iiif_url: string;
@@ -48,18 +48,19 @@ export class ArtworksService {
     return this.http.get<Artwork>(`${this.apiArtworksUrl}/${id}?${this.apiFields}`);
   }
 
-  // getArtworksByArtist(id: string): Observable<any> {
-  getArtworksByArtist(id: string): String {
-    return `${this.apiArtworksUrl}/search?query[term][artist_id]=${id}&${this.apiFields}&${this.apiPagination}`;
+  getArtworkUrl(id: string): string {
+    return `${this.apiArtworksUrl}/${id}?${this.apiFields}`;
   }
 
-  // getArtworksByArtist(id: string): Observable<any> {
-  getArtworksByDepartment(id: string): String {
-    return `${this.apiArtworksUrl}/search?query[term][department_id]=${id}&${this.apiFields}&${this.apiPagination}`;
+  getArtworksByArtist(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiArtworksUrl}/search?query[term][artist_id]=${id}&${this.apiFields}&${this.apiPagination}`);
   }
 
-  // getArtworksByArtist(id: string): Observable<any> {
-  getArtworksByStyle(id: string): String {
-    return `${this.apiArtworksUrl}/search?query[term][style_id]=${id}&${this.apiFields}&${this.apiPagination}`;
+  getArtworksByDepartment(id: string): Observable<Array<Artwork>> {
+    return this.http.get<Array<Artwork>>(`${this.apiArtworksUrl}/search?query[term][department_id]=${id}&${this.apiFields}&${this.apiPagination}`);
+  }
+
+  getArtworksByStyle(id: string): Observable<Array<Artwork>> {
+    return this.http.get<Array<Artwork>>(`${this.apiArtworksUrl}/search?query[term][style_id]=${id}&${this.apiFields}&${this.apiPagination}`);
   }    
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Artwork } from '../../services/artworks.service';
-import { ArtworksService } from '../../services/artworks.service';
+import { Artwork } from '../services/artworks.service';
+import { ArtworksService } from '../services/artworks.service';
 
 @Component({
   selector: 'app-artwork-detail',

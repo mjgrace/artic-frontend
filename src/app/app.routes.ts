@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArtworkDetailComponent } from './artworks/artwork-detail/artwork-detail.component';
+import { ArtworkListComponent } from './artworks/artwork-list/artwork-list.component';
 
 export const routes: Routes = [
     { path: 'artworks/:id', component: ArtworkDetailComponent },
-    { path: '', redirectTo: 'artworks/27992', pathMatch: 'full' } // Default route
+    { path: 'artworks', component: ArtworkListComponent },
+    { path: '', redirectTo: 'artworks', pathMatch: 'full' } // Default route
 ];
 
 @NgModule({
