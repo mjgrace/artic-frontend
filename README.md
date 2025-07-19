@@ -1,4 +1,10 @@
-# ArticFrontend
+# Art Institute of Chicago Display
+
+This is an Angular application that retrieves artwork data (including images) from the [Art Institute of Chicago's API](https://api.artic.edu/docs/) and displays basic data about the pieces.
+
+There is no back-end currently.  All data is retrieved dynamically.
+
+## Angular Setup
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
 
