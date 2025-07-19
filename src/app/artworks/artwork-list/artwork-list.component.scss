@@ -6,45 +6,30 @@ a {
 #artworkList {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
 }
 
 .artworkItem {
     width: 50%;
-    margin: 20px 5%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    justify-content: center;
+    margin: 10px 0px;
+    padding: 0px;
 }
 
-.artworkItem .artworkImage {
-    width: 100%;
+.artworkImage {
+    padding: 0px 10px;
 }
 
 .artworkImage img {
-    max-width: 50%;
-    max-height: 50%;
+    max-width: 100%;
+    max-height: 50vw;
 }
 
-.artworkItem .artworkDetail {
-    width: 50%;
-    margin: 20px auto;
-    justify-content: center;
-    align-items: center;
-}
-
-.artworkTitle, .artworkArtist, .artworkDate {
+.artworkTitle {
     text-align: center;
 }
-
-.artworkTitle, .artworkArtist, .artworkDate, .artworkDescription {
-    grid-column: 1 / span 2;
-}
-
-.artworkDescription {
-    grid-column: 1 / span 2;
-    text-align: justify;
-}
-
-.artworkDetail label {
-    margin-left: 30%;
-}
-
