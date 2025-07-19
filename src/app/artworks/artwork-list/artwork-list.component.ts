@@ -19,6 +19,10 @@ export class ArtworkListComponent {
     this.artworks = [];
   }
 
+  artworkDetail(artwork: ArtworkData): string {
+    return `/artworks/${artwork.id}`;
+  }
+  
   // List URL
   // https://api.artic.edu/api/v1/artworks/search?category_titles=Essentials&fields=id,title,artist_id,api_link,,description,date_display,artist_display,dimensions,medium_display,style_title,short_description,image_id,iiif_url&page=1&limit=100
   artworkUrl(artwork: ArtworkData) : string { 
@@ -26,7 +30,7 @@ export class ArtworkListComponent {
   }
 
   ngOnInit() {
-    this.artworksService.getArtworksByArtist('40810').subscribe({
+    this.artworksService.getArtworksByCategory('Essentials').subscribe({
       next: (result) => {
         console.log(result);
         this.config = result.config as ArtworkConfig;

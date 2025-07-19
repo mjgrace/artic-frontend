@@ -40,7 +40,8 @@ export class ArtworksService {
 
   private apiFields = 'fields=id,api_link,title,date_display,artist_id,artist_display,dimensions,short_description,description,medium_display,style_id,style_title,department_id,department_title,image_id,iiif_url';
 
-  private apiPagination = 'page=1&limit=100';
+  // TODO - Add to UI
+  private apiPagination = 'page=1&limit=10';
 
   constructor(private http: HttpClient) {  }
 
@@ -56,11 +57,15 @@ export class ArtworksService {
     return this.http.get<any>(`${this.apiArtworksUrl}/search?query[term][artist_id]=${id}&${this.apiFields}&${this.apiPagination}`);
   }
 
-  getArtworksByDepartment(id: string): Observable<Array<Artwork>> {
-    return this.http.get<Array<Artwork>>(`${this.apiArtworksUrl}/search?query[term][department_id]=${id}&${this.apiFields}&${this.apiPagination}`);
+  getArtworksByCategory(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiArtworksUrl}/search?category_titles=${id}&${this.apiFields}&${this.apiPagination}`);
   }
 
-  getArtworksByStyle(id: string): Observable<Array<Artwork>> {
-    return this.http.get<Array<Artwork>>(`${this.apiArtworksUrl}/search?query[term][style_id]=${id}&${this.apiFields}&${this.apiPagination}`);
+  getArtworksByDepartment(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiArtworksUrl}/search?query[term][department_id]=${id}&${this.apiFields}&${this.apiPagination}`);
+  }
+
+  getArtworksByStyle(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiArtworksUrl}/search?query[term][style_id]=${id}&${this.apiFields}&${this.apiPagination}`);
   }    
 }
