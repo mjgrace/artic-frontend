@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Artwork } from '../services/artworks.service';
 import { ArtworksService } from '../services/artworks.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-artwork-detail',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './artwork-detail.component.html',
   styleUrl: './artwork-detail.component.scss'
 })
@@ -20,22 +21,6 @@ export class ArtworkDetailComponent {
   // https://api.artic.edu/api/v1/artworks/search?category_titles=Essentials&fields=id,title,artist_id,api_link,,description,date_display,artist_display,dimensions,medium_display,style_title,short_description,image_id,iiif_url&page=1&limit=100
   artworkUrl() : string { 
     return this.artwork?.config?.iiif_url + '/' + this.artwork?.data?.image_id + '/full/843,/0/default.jpg';
-  }
-
-  artworkByArtistUrl() : string {
-    return this.artworksService.getArtworksByArtist(this.artwork?.data?.artist_id?.toString() || '').toString();
-  }
-
-  artworkByCategoryUrl() : string {
-    return this.artworkByDepartmentUrl();
-  }
-
-  artworkByDepartmentUrl() : string {
-    return this.artworksService.getArtworksByDepartment(this.artwork?.data?.department_id?.toString() || '').toString();
-  }
-
-  artworkByStyleUrl() : string {
-    return this.artworksService.getArtworksByStyle(this.artwork?.data?.style_id?.toString() || '').toString();
   }
 
   artworkDescription() : string {

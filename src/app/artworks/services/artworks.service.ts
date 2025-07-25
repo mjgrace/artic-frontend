@@ -57,8 +57,12 @@ export class ArtworksService {
     return this.http.get<any>(`${this.apiArtworksUrl}/search?query[term][artist_id]=${id}&${this.apiFields}&${this.apiPagination}`);
   }
 
-  getArtworksByCategory(id: string): Observable<any> {
+  getArtworksByCategoryTitle(id: string): Observable<any> {
     return this.http.get<any>(`${this.apiArtworksUrl}/search?category_titles=${id}&${this.apiFields}&${this.apiPagination}`);
+  }
+
+  getArtworksByCategoryIds(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiArtworksUrl}/search?query[term][category_ids]=${id}&${this.apiFields}&${this.apiPagination}`);
   }
 
   getArtworksByDepartment(id: string): Observable<any> {
@@ -66,6 +70,6 @@ export class ArtworksService {
   }
 
   getArtworksByStyle(id: string): Observable<any> {
-    return this.http.get<any>(`${this.apiArtworksUrl}/search?query[term][style_id]=${id}&${this.apiFields}&${this.apiPagination}`);
+    return this.http.get<any>(`${this.apiArtworksUrl}/search?query[term][style_ids]=${id}&${this.apiFields}&${this.apiPagination}`);
   }    
 }
